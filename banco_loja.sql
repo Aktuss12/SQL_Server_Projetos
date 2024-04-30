@@ -41,21 +41,17 @@ CREATE TABLE Entregador
     id_entregador INT IDENTITY (1,1) PRIMARY KEY,
     nome_entregador VARCHAR(50),
     telefone_entregador VARCHAR(11),
-    veiculo VARCHAR(50)
+    veiculo VARCHAR(50),
 );
 
 CREATE TABLE Envios 
 (
     id_envios INT IDENTITY (1,1) PRIMARY KEY,
     id_entregador INT,
-    id_cliente INT,
-    id_produtos INT,
     id_pedidos INT,
     preco_frete NUMERIC (10,2),
     prazo DATE,
     FOREIGN KEY (id_entregador) REFERENCES Entregador (id_entregador),
-    FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente),
-    FOREIGN KEY (id_produtos) REFERENCES Produtos (id_produtos),
     FOREIGN KEY (id_pedidos) REFERENCES Pedidos (id_pedidos)
 );
 
